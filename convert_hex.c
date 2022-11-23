@@ -14,7 +14,7 @@ unsigned int convert_X(va_list args, buffer_t *output,
  * @prec: A precision modifier.
  * @len: A length modifier.
  * @output: A buffer_t struct containing a character array.
- * 
+ *
  * Return: The number of bytes stored to the buffer.
  */
 unsigned int convert_x(va_list args, buffer_t *output,
@@ -36,11 +36,11 @@ unsigned int convert_x(va_list args, buffer_t *output,
 		if (HASH_FLAG == 1 && num != 0)
 			ret += _memcpy(output, lead, 2);
 
-		if (!(num == 0 && prec == 0))
-			ret += convert_ubase(output, num, "0123456789abcdef",
+	if (!(num == 0 && prec == 0))
+		ret += convert_ubase(output, num, "0123456789abcdef",
 					flags, wid, prec);
 
-			ret += print_neg_width(output, ret, flags, wid);
+		ret += print_neg_width(output, ret, flags, wid);
 
 			return (ret);
 }
@@ -54,7 +54,7 @@ unsigned int convert_x(va_list args, buffer_t *output,
  * @prec: A precision modifier.
  * @len: A length modifier.
  * @output: A buffer_t struct containing a character array.
- * 
+ *
  * Return: The number of bytes stored to the buffer.
  */
 unsigned int convert_X(va_list args, buffer_t *output,
@@ -76,8 +76,8 @@ unsigned int convert_X(va_list args, buffer_t *output,
 			ret += _memcpy(output, lead, 2);
 
 		if (!(num == 0 && prec == 0))
-			ret += convert_ubase(output, num, "0123456789ABCDEF",
+		ret += convert_ubase(output, num, "0123456789ABCDEF",
 					flags, wid, prec);
-			ret += print_neg_width(output, ret, flags, wid);
+		ret += print_neg_width(output, ret, flags, wid);
 					return (ret);
 }

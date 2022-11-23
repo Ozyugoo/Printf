@@ -17,7 +17,7 @@ unsigned int convert_R(va_list args, buffer_t *output,
  * @prec: A precision modifier.
  * @len: A length modifier.
  * @output: A buffer_t struct containing a character array.
- * 
+ *
  * Return: The number of bytes stored to the buffer.
  */
 unsigned int convert_s(va_list args, buffer_t *output,
@@ -31,12 +31,12 @@ unsigned int convert_s(va_list args, buffer_t *output,
 
 		(void)len;
 			str = va_arg(args, char *);
-	
+
 			if (str == NULL)
 			return (_memcpy(output, null, 6));
 
 		for (size = 0; *(str + size);)
-				size++
+				size++;
 					ret += print_string_width(output, flags, wid, prec, size);
 					prec = (prec == -1) ? size : prec;
 
@@ -51,7 +51,6 @@ unsigned int convert_s(va_list args, buffer_t *output,
 }
 
 /**
- *
  * convert_S - Converts an argument to a string and
  *             stores it to a buffer contained in a struct.
  * @args: A va_list pointing to the argument to be converted.
@@ -120,7 +119,7 @@ unsigned int convert_r(va_list args, buffer_t *output,
 		(void)flags;
 		(void)len;
 			str = va_arg(args, char *);
-			
+
 			if (str == NULL)
 			return (_memcpy(output, null, 6));
 			for (size = 0; *(str + size);)
