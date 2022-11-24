@@ -37,8 +37,10 @@ unsigned int convert_s(va_list args, buffer_t *output,
 
 		for (size = 0; *(str + size);)
 				size++;
-					ret += print_string_width(output, flags, wid, prec, size);
-					prec = (prec == -1) ? size : prec;
+
+                ret += print_string_width(output, flags, wid, prec, size);
+		
+                prec = (prec == -1) ? size : prec;
 
 		while (*str != '\0' && prec > 0)
 		{
