@@ -36,6 +36,7 @@ if (HASH_FLAG == 1 && num != 0)
 ret += _memcpy(output, lead, 2);
 
 if (!(num == 0 && prec == 0))
+
 ret += convert_ubase(output, num, "0123456789abcdef", flags, wid, prec);
 
 ret += print_neg_width(output, ret, flags, wid);
@@ -74,6 +75,7 @@ if (HASH_FLAG == 1 && num != 0)
 ret += _memcpy(output, lead, 2);
 
 if (!(num == 0 && prec == 0))
+
 ret += convert_ubase(output, num, "0123456789ABCDEF", flags, wid, prec);
 
 ret += print_neg_width(output, ret, flags, wid);
