@@ -1,5 +1,4 @@
 #include "main.h"
-
 unsigned int convert_c(va_list args, buffer_t *output,
 unsigned char flags, int wid, int prec, unsigned char len);
 unsigned int convert_percent(va_list args, buffer_t *output,
@@ -95,7 +94,8 @@ if (address == '\0')
 return (_memcpy(output, null, 5));
 
 flags |= 32;
-ret += convert_ubase(output, address, "0123456789abcdef", flags, wid, prec);
+ret += convert_ubase(output, address, "0123456789abcdef",
+flags, wid, prec);
 ret += print_neg_width(output, ret, flags, wid);
 
 return (ret);

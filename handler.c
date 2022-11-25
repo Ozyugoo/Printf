@@ -31,7 +31,6 @@ flag_t flags[] = {
 
 for (i = 0; flag[i]; i++)
 {
-
 for (j = 0; flags[j].flag != 0; j++)
 {
 if (flag[i] == flags[j].flag)
@@ -83,7 +82,8 @@ return (0);
  * @modifier: A pointer to a potential width modifier.
  * @index: An index counter for the original format string.
  *
- * Return: If a width modifier is matched - its value, Otherwise - 0.
+ * Return: If a width modifier is matched - its value.
+ * Otherwise - 0.
  */
 
 int handle_width(va_list args, const char *modifier, char *index)

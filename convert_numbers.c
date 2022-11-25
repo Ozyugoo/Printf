@@ -12,7 +12,7 @@ unsigned char flags, int wid, int prec, unsigned char len);
 /**
  * convert_di - Converts an argument to a signed int and
  * stores it to a buffer contained in a struct.
- * @args: A va_list pointing to the argument to be converted
+ * @args: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @wid: A width modifier.
  * @prec: A precision modifier.
@@ -38,8 +38,6 @@ d = (short)d;
 
 /* Handle space flag */
 if (SPACE_FLAG == 1 && d >= 0)
-
-
 ret += _memcpy(output, &space, 1);
 
 if (prec <= 0 && NEG_FLAG == 0) /* Handle width  */
@@ -60,7 +58,6 @@ count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
 if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
 ret += _memcpy(output, &plus, 1);
 /*Print negative sign when zero flag is active */
-
 if (ZERO_FLAG == 1 && d < 0)
 ret += _memcpy(output, &neg, 1);
 
@@ -77,7 +74,8 @@ if (ZERO_FLAG == 0 && (PLUS_FLAG == 1 && d >= 0))
 ret += _memcpy(output, &plus, 1);
 
 if (!(d == 0 && prec == 0))
-ret += convert_sbase(output, d, "0123456789", flags, 0, prec);
+ret += convert_sbase(output, d, "0123456789",
+flags, 0, prec);
 
 ret += print_neg_width(output, ret, flags, wid);
 
@@ -86,7 +84,7 @@ return (ret);
 
 /**
  * convert_b - Converts an unsigned int argument to binary
- * and store it to a buffer contained in a struct.
+ * and stores it to a buffer contained in a struct.
  * @args: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @wid: A width modifier.
@@ -132,7 +130,6 @@ char zero = '0';
 if (len == LONG)
 num = va_arg(args, unsigned long int);
 else
-
 num = va_arg(args, unsigned int);
 if (len == SHORT)
 num = (unsigned short)num;
@@ -141,7 +138,8 @@ if (HASH_FLAG == 1 && num != 0)
 ret += _memcpy(output, &zero, 1);
 
 if (!(num == 0 && prec == 0))
-ret += convert_ubase(output, num, "01234567", flags, wid, prec);
+ret += convert_ubase(output, num, "01234567",
+flags, wid, prec);
 
 ret += print_neg_width(output, ret, flags, wid);
 
@@ -175,8 +173,8 @@ if (len == SHORT)
 num = (unsigned short)num;
 
 if (!(num == 0 && prec == 0))
-
-ret += convert_ubase(output, num, "0123456789", flags, wid, prec);
+ret += convert_ubase(output, num, "0123456789",
+flags, wid, prec);
 
 ret += print_neg_width(output, ret, flags, wid);
 
