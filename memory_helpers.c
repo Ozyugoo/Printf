@@ -10,6 +10,7 @@ buffer_t *init_buffer(void);
  * @output: A buffer_t struct.
  * @src: A pointer to the memory area to copy.
  * @n: The number of bytes to be copied.
+ *
  * Return: The number of bytes copied.
  */
 unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n)
@@ -30,7 +31,7 @@ unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n)
 		else
 			(output->buffer)++;
 	}
-		return (n);
+	return (n);
 }
 
 /**
@@ -45,26 +46,22 @@ void free_buffer(buffer_t *output)
 
 /**
  * init_buffer - Initializes a variable of struct type buffer_t.
- *
  * Return: A pointer to the initialized buffer_t.
  */
 buffer_t *init_buffer(void)
 {
 	buffer_t *output;
 
-output = malloc(sizeof(buffer_t));
-
+	output = malloc(sizeof(buffer_t));
 	if (output == NULL)
-	return (NULL);
-	output->buffer = malloc(sizeof(char) * 1024);
-
-	if (output->buffer == NULL)
-	{
-		free(output);
-
 		return (NULL);
-	}
-	output->start = output->buffer;
-	output->len = 0;
-	return (output);
+output->buffer = malloc(sizeof(char) * 1024);
+if (output->buffer == NULL)
+{
+free(output);
+return (NULL);
+}
+output->start = output->buffer;
+output->len = 0;
+return (output);
 }
